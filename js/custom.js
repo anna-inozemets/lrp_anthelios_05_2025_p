@@ -277,20 +277,24 @@ const slideActions = {
     nextArrowDelay = 5.2;
   },
   10: () => {
-    $('.slide--10__left h2').on('click', function() {
-      $(this).addClass('active');
+    $('.slide--10__bottle-block .animation-plus').on('click', function() {
+      $(this).parent().addClass('active');
 
-      gsap.to('.slide--10__bottle-block.first', { opacity: 1, duration: 0.75, delay: 0.75, x: '0', y: '0'});
-      gsap.to('.slide--10__bottle-block.second', { opacity: 1, duration: 0.75, delay: 1.05, x: '0', y: '0'});
-      gsap.to('.slide--10__right h4', { opacity: 1, duration: 0.75, delay: 1.55, y: '0'});
-      gsap.to('.slide--10__right h5.first, .slide--10__right-block.first, .slide--10__right-block.second', { opacity: 1, duration: 0.75, delay: 1.95, y: '0'});
-      gsap.to('.slide--10__right h5.second, .slide--10__right-block.third', { opacity: 1, duration: 0.75, delay: 2.35, y: '0'});
+      $(this).fadeOut(350, function () {
+        $(this).parent().find('img').fadeIn(500)
+        $(this).parent().find('.text').fadeIn(500);
 
-      if ($('.slide--10__left h2').hasClass('active')) {
+        if($(this).parent().hasClass('second') && $('.slide--10__bottle-block.second p').length === 1) {
+          $('.slide--10__bottle-block.second p').fadeIn(500);
+        }
+      });
+
+      if ($('.slide--10__bottle-block.active').length === 2) {
+        $('.slide--10__bottles').addClass('visible');
         nextButtonTimeout = setTimeout(() => {
           $(nextSlideButton).removeClass(hiddenArrowClass);
           $(prevSlideButton).removeClass(hiddenArrowClass);
-        }, 3.35 * 1000);
+        }, 2 * 1000);
       }
     })
   },
@@ -408,21 +412,7 @@ const slideActions = {
       gsap.to('.slide--16__text', { opacity: 1, duration: 0.75, delay: 0.75, x: '0' });
       gsap.to('.slide--16__list', { opacity: 1, duration: 0.75, delay: 1.15, y: '0' });
 
-      if ($('.slide--16__bottle').hasClass('active') && $('.slide--16__right-block.active').length === 4) {
-        nextButtonTimeout = setTimeout(() => {
-          $(nextSlideButton).removeClass(hiddenArrowClass);
-          $(prevSlideButton).removeClass(hiddenArrowClass);
-        }, 2.15 * 1000);
-      }
-    })
-
-    $('.slide--16__right-block').on('click', function() {
-      $(this).addClass('active');
-
-      gsap.to($(this).find('h5'), { opacity: 1, duration: 0.75, delay: 0.75 });
-      gsap.to($(this).find('p'), { opacity: 1, duration: 0.75, delay: 1.15 });
-
-      if ($('.slide--16__bottle').hasClass('active') && $('.slide--16__right-block.active').length === 4) {
+      if ($('.slide--16__bottle').hasClass('active')) {
         nextButtonTimeout = setTimeout(() => {
           $(nextSlideButton).removeClass(hiddenArrowClass);
           $(prevSlideButton).removeClass(hiddenArrowClass);

@@ -3869,7 +3869,7 @@ p.slide-numbering.left {
   filter: blur(0.3em);
   transition: all 0.25s ease-in-out;
 }
-.slide--6__left img.molecule.active {
+.slide--6__left-content.active img.molecule {
   filter: unset;
 }
 .slide--6__left h3 {
@@ -3982,45 +3982,29 @@ p.slide-numbering.left {
 .slide--8__bottle.active img.bottle {
   filter: unset;
 }
-.slide--10__left h2::before {
-  content: '';
-  position: absolute;
-  top: 1em;
-  left: calc(50% - 2.5em);
-  width: 0.75em;
-  aspect-ratio: 1 / 1;
-  animation: bounceTopSmall 3s ease-in-out infinite;
-  transition: all 0.2s linear;
-  pointer-events: none;
-  background-image: url(../images/hand-pointer.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 12;
-  filter: invert(1);
+
+.slide--10__bottles {
+  z-index: 11;
 }
-.slide--10__left h2.active::before {
-  opacity: 0;
+.slide--10__bottles.visible {
+  z-index: 1;
+}
+.slide--10__bottle-block .text, .slide--10__bottle-block img, .slide--10__bottle-block.second p {
+  display: none;
 }
 .slide--10__bottle-block.first {
-  transform: translateX(-10em);
-  opacity: 0;
+  width: 74em;
 }
 .slide--10__bottle-block.second {
-  transform: translateX(10em);
-  opacity: 0;
+  width: 83em;
 }
-.slide--10__right h4 {
-  transform: translateY(1em);
-  opacity: 0;
+.slide--10__bottle-block.first .animation-plus {
+  top: 21em;
+  right: -39em;
 }
-.slide--10__right h5 {
-  transform: translateY(1.5em);
-  opacity: 0;
-}
-.slide--10__right-block {
-  transform: translateY(4em);
-  opacity: 0;
+.slide--10__bottle-block.second .animation-plus {
+  top: 32em;
+  left: 24em;
 }
 
 .slide--11__bottle::before {
@@ -4190,41 +4174,8 @@ p.slide-numbering.left {
   transform: translateY(-13em);
   opacity: 0;
 }
-.slide--16__right-block {
-  position: relative;
-  z-index: 11;
-  filter: grayscale(1);
-  transition: all 0.4s linear;
-}
-.slide--16__right-block.active {
-  z-index: 1;
-  filter: unset;
-}
-.slide--16__right-block h5, .slide--16__right-block p {
+.slide--16__bottle.active::before {
   opacity: 0;
-}
-.slide--16__right-block::before {
-  content: '';
-  position: absolute;
-  top: 8.5em;
-  left: 23em;
-  width: 6em;
-  aspect-ratio: 1 / 1;
-  animation: hand-wobble 3s ease-in-out infinite;
-  transition: all 0.2s linear;
-  pointer-events: none;
-  background-image: url(../images/hand-pointer.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 12;
-}
-.slide--16__bottle.active::before, .slide--16__right-block.active::before {
-  opacity: 0;
-}
-
-.slide--19__block img, .slide--19__block p {
-  display: none;
 }
 
 .slide--20__bottle::before {
