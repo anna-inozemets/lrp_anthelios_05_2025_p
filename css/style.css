@@ -4153,7 +4153,7 @@ p.slide-numbering.left {
   content: '';
   position: absolute;
   top: 2em;
-  left: 18em;
+  left: 50%;
   width: 6em;
   aspect-ratio: 1 / 1;
   animation: bounceDown 3s ease-in-out infinite;
@@ -4176,6 +4176,10 @@ p.slide-numbering.left {
 }
 .slide--16__bottle.active::before {
   opacity: 0;
+}
+
+.slide--19__block img, .slide--19__block p {
+  display: none;
 }
 
 .slide--20__bottle::before {
