@@ -4186,7 +4186,7 @@ p.slide-numbering.left {
   content: '';
   position: absolute;
   top: 1.5em;
-  left: 10.5em;
+  left: calc(50% - 5em);
   width: 5.5em;
   aspect-ratio: 1 / 1;
   animation: bounceDown 3s ease-in-out infinite;
